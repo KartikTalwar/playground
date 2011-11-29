@@ -17,7 +17,7 @@ int main()
 
 int myfcn(int a)
 {
-	cont TO_ADD = 4;
+	const TO_ADD = 4;
 	int b = a + TO_ADD;
 
 	return b;
