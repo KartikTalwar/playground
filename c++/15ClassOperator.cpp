@@ -7,7 +7,7 @@ using namespace std;
 class Money
 {
 	public:
-		friend money operator +(const Money& amt1, const Money& amt2);
+		friend Money operator +(const Money& amt1, const Money& amt2);
 		friend bool operator ==(const Money& amt1, const Money& amt2);
 		
 		Money(long dollars, int cents);
