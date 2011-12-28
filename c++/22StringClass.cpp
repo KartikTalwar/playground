@@ -33,6 +33,18 @@ int main()
 	
 	cout << isPalindrome("12321") << endl;
 	
+	
+	
+	
+	// Other methods
+	
+	fname += lname;
+	full.empty(); // bool
+	fname.insert(0, "Mr ");
+	lname.remove(0, "T");
+	fname.find("r");
+	
+	
 	return 0;
 }
 
