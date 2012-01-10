@@ -22,3 +22,6 @@ print "\n";
 # $string = q(you can do this too); 
 # $string = q{you can do this too}; 
 # $string = q<you can do this too>; 
+
+$lang{"KT"}  = "PHP";
+print "My favorite language is ", $lang{'KT'}, "\n";
