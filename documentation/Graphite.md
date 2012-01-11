@@ -1,6 +1,6 @@
-## Installing [Graphite](http://graphite.wikidot.com)
+# Installing [Graphite](http://graphite.wikidot.com) 
 
-### Getting the packages
+## Getting the packages
 
 ```
 wget http://launchpad.net/graphite/0.9/0.9.9/+download/graphite-web-0.9.9.tar.gz
@@ -20,14 +20,14 @@ rm graphite-web-0.9.9.tar.gz
 rm whisper-0.9.9.tar.gz
 ```
 
-### Installing Dependencies
+## Installing Dependencies
 
 ```
 sudo apt-get install --assume-yes apache2 apache2-mpm-worker apache2-utils apache2.2-bin apache2.2-common libapr1 libaprutil1 libaprutil1-dbd-sqlite3  libapache2-mod-wsgi libaprutil1-ldap memcached python-cairo-dev python-django python-ldap python-memcache python-pysqlite2 sqlite3 erlang-os-mon erlang-snmp rabbitmq-server bzr expect ssh libapache2-mod-python python-setuptools
 sudo easy_install django-tagging
 ```
 
-#### Installing Whisper
+### Installing Whisper
 
 ```
 cd ./whisper
@@ -35,7 +35,7 @@ sudo python setup.py install
 cd ../
 ```
 
-#### Installing Carbon
+### Installing Carbon
 
 ```
 cd ./carbon
@@ -53,7 +53,7 @@ sudo cp storage-schemas.conf.example storage-schemas.conf
 sudo nano storage-schemas.conf
 ```
 
-**Edit the file with the following changes**
+Edit the file with the following changes
 
     [stats]
     priority = 110
@@ -61,7 +61,7 @@ sudo nano storage-schemas.conf
     retentions = 10:2160, 60:10080, 600:262974
 
 
-### Configuring Graphite
+## Configuring Graphite
 
 ```
 cd ~/graphite
@@ -69,7 +69,7 @@ sudo python check-dependencies.py
 sudo python setup.py install
 ```
 
-### Configuring Apache
+## Configuring Apache
 
 ```
 cd ./examples
@@ -84,7 +84,7 @@ sudo mkdir /etc/httpd/wsgi
 sudo /etc/init.d/apache2 reload
 ```
 
-### Creating a DB
+## Creating a DB
 
 ```
 cd /opt/graphite/webapp/graphite/
@@ -94,7 +94,7 @@ sudo chown -R www-data:www-data /opt/graphite/storage/
 sudo /etc/init.d/apache2 restart
 ```
 
-### Starting Carbon
+## Starting Carbon
 
 ```
 cd /opt/graphite/
@@ -102,7 +102,7 @@ sudo ./bin/carbon-cache.py start
 ```
 
 
-### Sending Sample Data To Graphite
+## Sending Sample Data To Graphite
 
 ```
 cd ~/graphite/examples
