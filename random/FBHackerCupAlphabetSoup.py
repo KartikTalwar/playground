@@ -35,6 +35,4 @@ def parse(string):
 	return min(d.values())
 
 file = urllib.urlopen("https://raw.github.com/gist/1651354/67521ff0ac3332ca68713dfcd474a431c2d6c427/AlphabetSoupInput.txt").read().split('\n')
-w = open('output.txt', 'w')
-[w.write("Case #%d: %d\n" % (i, parse(file[i]))) for i in range(1, len(file))]
-w.close()
+open('output.txt', 'w').write( "\n".join( [("Case #%d: %d" % (i, parse(file[i]))) for i in range(1, len(file))]))
