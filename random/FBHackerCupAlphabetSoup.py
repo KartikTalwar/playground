@@ -31,14 +31,11 @@ def parse(string):
 	for i in range(len(string)):
 		if string[i] in dict:
 			dict[string[i]] += 1
-	return dict
-		
-def count(dict):
 	low = min(dict.values())
 	for k,v in dict.items():
 		bool = False if v < low else True
 	return low if bool == True else 0
-
+		
 
 import urllib
 
@@ -47,10 +44,9 @@ stream = file.read().split('\n')
 rez = []
 
 for i in range(1, int(stream[0])+1):
-	rez.append("Case #%d: %d" % (i, count(parse(stream[i]))))
+	rez.append( "Case #%d: %d" % (i, parse(stream[i])) )
 
 data = "\n".join(rez)
 w = open('output.txt', 'w')
 w.write(data)
 w.close()
-
