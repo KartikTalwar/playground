@@ -27,26 +27,21 @@ Each sentence contains at least one letter, and contains at most 1000 characters
 '''
 
 def parse(string):
-	dict = {'H' : 0, 'A' : 0, 'C' : 0, 'K' : 0, 'E' : 0, 'R' : 0, 'C' : 0, 'U' : 0, 'P' : 0}
+	dict = {'H' : 0, 'A' : 0, 'C' : 0, 'K' : 0, 'E' : 0, 'R' : 0, 'U' : 0, 'P' : 0}
 	for i in range(len(string)):
 		if string[i] in dict:
 			dict[string[i]] += 1
-	low = min(dict.values())
-	for k,v in dict.items():
-		bool = False if v < low else True
-	return low if bool == True else 0
-		
+	dict['C'] /= 2
+	return min(dict.values())
+	
 
 import urllib
 
 file = urllib.urlopen("https://raw.github.com/gist/1651354/67521ff0ac3332ca68713dfcd474a431c2d6c427/AlphabetSoupInput.txt")
 stream = file.read().split('\n')
-rez = []
+w = open('output.txt', 'w')
 
 for i in range(1, int(stream[0])+1):
-	rez.append( "Case #%d: %d" % (i, parse(stream[i])) )
+	w.write("Case #%d: %d\n" % (i, parse(stream[i])))
 
-data = "\n".join(rez)
-w = open('output.txt', 'w')
-w.write(data)
 w.close()
