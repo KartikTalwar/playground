@@ -1,3 +1,4 @@
+
 '''
 Facebook Hacker Cup 2012 Qualification Round
 
@@ -26,22 +27,14 @@ Sentences contain only the upper-case letters A-Z and the space character
 Each sentence contains at least one letter, and contains at most 1000 characters, including spaces
 '''
 
-def parse(string):
-	dict = {'H' : 0, 'A' : 0, 'C' : 0, 'K' : 0, 'E' : 0, 'R' : 0, 'U' : 0, 'P' : 0}
-	for i in range(len(string)):
-		if string[i] in dict:
-			dict[string[i]] += 1
-	dict['C'] /= 2
-	return min(dict.values())
-	
-
 import urllib
+def parse(string):
+	d = {'H' : 0, 'A' : 0, 'C' : 0, 'K' : 0, 'E' : 0, 'R' : 0, 'U' : 0, 'P' : 0}
+	d = {s: string.count(s) for s in string if s in d} 
+	d['C'] /= 2
+	return min(d.values())
 
-file = urllib.urlopen("https://raw.github.com/gist/1651354/67521ff0ac3332ca68713dfcd474a431c2d6c427/AlphabetSoupInput.txt")
-stream = file.read().split('\n')
+file = urllib.urlopen("https://raw.github.com/gist/1651354/67521ff0ac3332ca68713dfcd474a431c2d6c427/AlphabetSoupInput.txt").read().split('\n')
 w = open('output.txt', 'w')
-
-for i in range(1, int(stream[0])+1):
-	w.write("Case #%d: %d\n" % (i, parse(stream[i])))
-
+[w.write("Case #%d: %d\n" % (i, parse(file[i]))) for i in range(1, len(file))]
 w.close()
