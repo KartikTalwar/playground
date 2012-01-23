@@ -1,4 +1,3 @@
-
 '''
 Facebook Hacker Cup 2012 Qualification Round
 
@@ -30,7 +29,7 @@ Each sentence contains at least one letter, and contains at most 1000 characters
 import urllib
 def parse(string):
 	d = {'H' : 0, 'A' : 0, 'C' : 0, 'K' : 0, 'E' : 0, 'R' : 0, 'U' : 0, 'P' : 0}
-	d = {s: string.count(s) for s in string if s in d} 
+	d.update({s: string.count(s) for s in string if s in d})
 	d['C'] /= 2
 	return min(d.values())
 
