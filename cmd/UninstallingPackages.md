@@ -1,9 +1,10 @@
 ## Uninstalling rpm packages
+====================================
 
-** Remove package and dependencies**
+**Remove package and dependencies**
 
-	rpm -ev package_name
+	sudo rpm -ev package_name
 
-** Remove package without dependency check**
+**Remove package without dependency check**
 
-	rpm -ev --nodeps package_name
+	sudo rpm -ev --nodeps package_name
