@@ -1,0 +1,9 @@
+// Mathematica
+
+waldo = Import["http://www.findwaldo.com/fankit/graphics/IntlManOfLiterature/Scenes/DepartmentStore.jpg"];
+red = Fold[ImageSubtract, #[[1]], Rest[#]] &@ColorSeparate[waldo];
+corr = ImageCorrelate[red, 
+                      Image@Join[ConstantArray[1, {2, 4}], ConstantArray[0, {2, 4}]], 
+                      NormalizedSquaredEuclideanDistance];
+pos = Dilation[ColorNegate[Binarize[corr, .12]], DiskMatrix[30]];
+found = ImageMultiply[waldo, ImageAdd[ColorConvert[pos, "GrayLevel"], .5]]   
