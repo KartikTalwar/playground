@@ -38,7 +38,7 @@ becomes G in Googlerese.
 
 ### Limits
 
-1 ≤ T ≤ 30.
+1 <= T <= 30.
 G contains at most 100 characters.
 None of the text is guaranteed to be valid English.
 
