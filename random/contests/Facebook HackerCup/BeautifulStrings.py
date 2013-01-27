@@ -41,20 +41,22 @@ So I just go consult Professor Dalves                        Case #5: 646
 
 """
 
-import re, operator
-from pprint import pprint as pp
+import re, operator, urllib2
 
-def val(i):
-    return ord(i.lower()) - 96
 
-def mkdict(s):
-    d = {}
+def getScore(s):
+    s = re.sub('[^A-Za-z]', '', s).lower()
+    total, x, d = 0, 26, {}
     d.update({j: s.count(j) for j in s})
-    return sorted(d.iteritems(), key=operator.itemgetter(1))[::-1]
+    data = sorted(d.iteritems(), key=operator.itemgetter(1))[::-1]
+
+    for i in data:
+        total += i[1] * x
+        x -= 1
+
+    return total
 
 
-s = 'abbccc'
-data = mkdict(s)
-
-pp(data)
+file = urllib2.urlopen('https://gist.github.com/raw/4647356/f490a1df2ccda25553c70086205e38fc7e53647e/FBHackerCupBeautifulStrings.txt').read().split('\n')
+open('output.txt', 'w').write( "\n".join( [("Case #%d: %d" % (i, getScore(file[i]))) for i in range(1, len(file))][:-1]))
 
