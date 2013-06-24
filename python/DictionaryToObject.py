@@ -7,5 +7,5 @@ class DictObject(dict):
     return self[k]
 
 
-obj = DictObject({'key' : 'value})
+obj = DictObject({'key' : 'value'})
 print obj.key
