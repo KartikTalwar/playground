@@ -1,6 +1,6 @@
 // Mathematica
 
-waldo = Import["http://www.findwaldo.com/fankit/graphics/IntlManOfLiterature/Scenes/DepartmentStore.jpg"];
+waldo = Import["http://i.imgur.com/q2G3PvD.jpg"];
 red = Fold[ImageSubtract, #[[1]], Rest[#]] &@ColorSeparate[waldo];
 corr = ImageCorrelate[red, 
                       Image@Join[ConstantArray[1, {2, 4}], ConstantArray[0, {2, 4}]], 
