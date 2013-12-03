@@ -1,4 +1,3 @@
-
 ## Deploying Flask app to Production
 
 
@@ -6,7 +5,7 @@
 
 ```sh
 $ sudo pip install flask
-$ sudo pip install uwsgi
+$ sudo pip install uwsgi==1.9.20
 ```
 
 ### Socket Server
